@@ -1,0 +1,103 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Auth {
+  _id: ID!
+  password: String!
+  roles: [String!]!
+  username: String!
+}
+
+type CastAndCrew {
+  _id: ID!
+  name: String!
+  role: String!
+  type: String!
+}
+
+input CreateAuthDto {
+  password: String!
+  roles: [String!]!
+  username: String!
+}
+
+input CreateCastAndCrewDto {
+  name: String!
+  role: String!
+  type: String!
+}
+
+input CreateMediaDto {
+  actors: [String!]!
+  director: String!
+  producer: String!
+  runtime: Float!
+  title: String!
+  type: String!
+}
+
+input LoginAuthDto {
+  password: String!
+  username: String!
+}
+
+type Media {
+  _id: ID!
+  actors: [CastAndCrew!]!
+  director: CastAndCrew!
+  producer: CastAndCrew!
+  runtime: Float!
+  title: String!
+  type: String!
+}
+
+type Mutation {
+  createAuth(createAuthDto: CreateAuthDto!): Auth!
+  createCastAndCrew(createCastAndCrewDto: CreateCastAndCrewDto!): CastAndCrew!
+  createMedia(createMediaDto: CreateMediaDto!): Media!
+  deleteAuth(id: String!): Auth!
+  deleteCastAndCrew(id: String!): CastAndCrew!
+  deleteMedia(id: String!): Media!
+  login(loginAuthDto: LoginAuthDto!): Token!
+  updateAuth(updateAuthDto: UpdateAuthDto!): Auth!
+  updateCastAndCrew(updateCastAndCrewDto: UpdateCastAndCrewDto!): CastAndCrew!
+  updateMedia(updateMediaDto: UpdateMediaDto!): Media!
+}
+
+type Query {
+  auth(id: String!): Auth!
+  auths: [Auth!]!
+  castandcrew(id: String!): CastAndCrew!
+  castandcrews: [CastAndCrew!]!
+  media(id: String!): Media!
+  medias: [Media!]!
+}
+
+type Token {
+  access_token: String!
+}
+
+input UpdateAuthDto {
+  id: String!
+  password: String!
+  roles: [String!]!
+  username: String!
+}
+
+input UpdateCastAndCrewDto {
+  id: String!
+  name: String!
+  role: String!
+  type: String!
+}
+
+input UpdateMediaDto {
+  actors: [String!]!
+  director: String!
+  id: String!
+  producer: String!
+  runtime: Float!
+  title: String!
+  type: String!
+}
